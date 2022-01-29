@@ -2,10 +2,14 @@ extends KinematicBody2D
 
 export var ACCELERATION = 500
 export var MAX_SPEED = 80
+export var CANDLE_ANIMATION_SPEED_LOSS = 0.7
+export var SPEED_REDUCTION_CANDLE = 50
 export var FRICTION = 1000
-export var CANDLE_LIGHTING_WEAR = 20
-export var CANDLE_CONSTANT_WEAR = 15
-export var candle_energy = 100000
+export var CANDLE_LIGHTING_WEAR = 10
+export var CANDLE_CONSTANT_WEAR = 8
+export var INITIAL_CANDLE_ENERGY = 300
+export var CANDLE_OFF_SIZE = 0.4
+export var CANDLE_OFF_ENERGY = 0.4
 
 var IDLE_ANIMATION_CODE = "i"
 var RUN_ANIMATION_CODE = "r"
@@ -13,14 +17,22 @@ var RIGHT_ANIMATION_CODE = "r"
 var LEFT_ANIMATION_CODE = "l"
 var CANDLE_ANIMATION_CODE = "c"
 
+var candle_energy = 100
 var candle = false
 var velocity = Vector2.ZERO
 var last_input_x = Vector2.ZERO
 onready var animationPlayer = $AnimationPlayer
 onready var light = $Light2D
-onready var lightmask = $Light2DMask
 
 signal candle_update(amount)
+signal die
+
+func ready():
+	candle_energy = INITIAL_CANDLE_ENERGY
+
+func respawn():
+	candle = false
+	candle_energy = INITIAL_CANDLE_ENERGY
 
 func animate(input_vector, horizontal_dir):
 	var idle = RUN_ANIMATION_CODE if input_vector != Vector2.ZERO else IDLE_ANIMATION_CODE
@@ -28,19 +40,22 @@ func animate(input_vector, horizontal_dir):
 	var animation = idle + right
 	if candle:
 		animation += CANDLE_ANIMATION_CODE
-	animationPlayer.play(animation)
+	var animation_speed = 1
+	if idle != IDLE_ANIMATION_CODE:
+		animation_speed = 1 - (CANDLE_ANIMATION_SPEED_LOSS * int(candle))
+	animationPlayer.play(animation, 1, animation_speed)
 
 
 func light_candle():
 	candle = true
-	light.enabled = true
-	lightmask.enabled = true
+	light.texture_scale = 1
+	light.energy = 1
 	candle_energy -= CANDLE_LIGHTING_WEAR
 
 func blow_out_candle():
 	candle = false
-	light.enabled = false
-	lightmask.enabled = false
+	light.texture_scale = CANDLE_OFF_SIZE
+	light.energy = CANDLE_OFF_ENERGY
 
 func _physics_process(delta):
 	if Input.is_action_just_pressed("candle"):
@@ -60,9 +75,10 @@ func _physics_process(delta):
 	input_vector = input_vector.normalized()
 	
 	if input_vector != Vector2.ZERO:
+		var max_speed = MAX_SPEED - (SPEED_REDUCTION_CANDLE * int(candle))
 		if input_vector.x != 0:
 			last_input_x = input_vector
-		velocity = velocity.move_toward(input_vector * MAX_SPEED, ACCELERATION * delta)
+		velocity = velocity.move_toward(input_vector * max_speed, ACCELERATION * delta)
 	else:
 		velocity = velocity.move_toward(Vector2.ZERO, FRICTION * delta)
 	
@@ -72,3 +88,7 @@ func _physics_process(delta):
 		
 func move():
 	velocity = move_and_slide(velocity)
+
+
+func _on_Hurtbox_area_entered(area):
+	emit_signal("die")

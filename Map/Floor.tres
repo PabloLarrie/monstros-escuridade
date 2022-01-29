@@ -7,20 +7,20 @@
 [sub_resource type="ConvexPolygonShape2D" id=1]
 points = PoolVector2Array( 16, 32, 0, 32, 0, 0, 16, 0 )
 
-[sub_resource type="NavigationPolygon" id=4]
+[sub_resource type="NavigationPolygon" id=2]
 vertices = PoolVector2Array( 16, 32, 0, 32, 0, 24, 16, 24 )
 polygons = [ PoolIntArray( 0, 1, 2, 3 ) ]
 
-[sub_resource type="OccluderPolygon2D" id=9]
+[sub_resource type="OccluderPolygon2D" id=3]
 polygon = PoolVector2Array( 2, 8, 5, 10, 11, 10, 14, 8, 13, 20, 13, 27, 10, 29, 10, 22, 10, 13, 6, 13, 6, 22, 6, 29, 3, 26, 3, 22, 3, 13 )
 
-[sub_resource type="ConvexPolygonShape2D" id=8]
+[sub_resource type="ConvexPolygonShape2D" id=4]
 points = PoolVector2Array( 16, 32, 0, 32, 0, 24, 16, 24 )
 
-[sub_resource type="OccluderPolygon2D" id=6]
+[sub_resource type="OccluderPolygon2D" id=5]
 polygon = PoolVector2Array( 12, 0, 14, 0, 16, 2, 18, 0, 26, 2, 24, 4, 28, 8, 26, 10, 30, 14, 28, 16, 32, 24, 30, 28, 32, 32, 30, 34, 32, 38, 28, 40, 30, 44, 24, 42, 26, 46, 22, 46, 20, 44, 20, 48, 14, 48, 12, 46, 8, 46, 10, 44, 6, 42, 2, 44, 4, 40, 0, 40, 0, 36, 2, 34, 0, 32, 2, 28, 0, 26, 0, 24, 4, 16, 2, 14, 6, 10, 4, 8, 8, 4, 6, 2 )
 
-[sub_resource type="ConvexPolygonShape2D" id=3]
+[sub_resource type="ConvexPolygonShape2D" id=6]
 points = PoolVector2Array( 24, 48, 8, 48, 8, 36, 24, 36 )
 
 [resource]
@@ -164,19 +164,19 @@ resource_local_to_scene = true
 7/region = Rect2( 208, 180, 16, 32 )
 7/tile_mode = 0
 7/occluder_offset = Vector2( 0, 0 )
-7/occluder = SubResource( 9 )
+7/occluder = SubResource( 3 )
 7/navigation_offset = Vector2( 0, 0 )
-7/navigation = SubResource( 4 )
+7/navigation = SubResource( 2 )
 7/shape_offset = Vector2( 0, 0 )
 7/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
-7/shape = SubResource( 8 )
+7/shape = SubResource( 4 )
 7/shape_one_way = false
 7/shape_one_way_margin = 1.0
 7/shapes = [ {
 "autotile_coord": Vector2( 0, 0 ),
 "one_way": false,
 "one_way_margin": 1.0,
-"shape": SubResource( 8 ),
+"shape": SubResource( 4 ),
 "shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
 } ]
 7/z_index = 0
@@ -201,18 +201,18 @@ resource_local_to_scene = true
 9/region = Rect2( 0, 0, 32, 48 )
 9/tile_mode = 0
 9/occluder_offset = Vector2( 0, 0 )
-9/occluder = SubResource( 6 )
+9/occluder = SubResource( 5 )
 9/navigation_offset = Vector2( 0, 0 )
 9/shape_offset = Vector2( 0, 0 )
 9/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
-9/shape = SubResource( 3 )
+9/shape = SubResource( 6 )
 9/shape_one_way = false
 9/shape_one_way_margin = 1.0
 9/shapes = [ {
 "autotile_coord": Vector2( 0, 0 ),
 "one_way": false,
 "one_way_margin": 1.0,
-"shape": SubResource( 3 ),
+"shape": SubResource( 6 ),
 "shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
 } ]
 9/z_index = 0

@@ -12,15 +12,34 @@ enum {
 	LOSING_TRACK
 }
 
+var IDLE_ANIMATION_CODE = "i"
+var RUN_ANIMATION_CODE = "r"
+var RIGHT_ANIMATION_CODE = "r"
+var LEFT_ANIMATION_CODE = "l"
+
 var state = SLEEP
 var awaken_time = 0
 var track_lost_time = 0
 var velocity = Vector2.ZERO
 var player = null
+var last_dir_x = 0
+var initial_position = Vector2.ZERO
 
 onready var playerDetectionCandle = $PlayerDetectionCandle
 onready var playerDetection = $PlayerDetection
 onready var playerPursuit = $PlayerPursuit
+onready var animationPlayer = $AnimationPlayer
+onready var eyes = $Eyes
+
+func _ready():
+	initial_position = position
+	
+func respawn():
+	velocity = Vector2.ZERO
+	position = initial_position
+	state = SLEEP
+	playerDetectionCandle.player = null
+	playerDetection.player = null
 
 func awaken():
 	state = AWAKENING
@@ -28,7 +47,7 @@ func awaken():
 func player_is_visible():
 	if playerDetectionCandle.player and playerDetectionCandle.player.candle:
 		return playerDetectionCandle.player
-	elif playerDetection:
+	elif playerDetection.player:
 		return playerDetection.player
 		
 func player_in_pursuit_range():
@@ -46,6 +65,7 @@ func _physics_process(delta):
 			awake_state(delta)
 		LOSING_TRACK:
 			losing_track_state(delta)
+	animate()
 			
 func losing_track_state(delta):
 	var visible_player = player_is_visible()
@@ -53,12 +73,25 @@ func losing_track_state(delta):
 		state = AWAKE
 	track_lost_time -= delta
 	if track_lost_time < 0:
-		state = SLEEP
 		velocity = Vector2.ZERO
-	move_to_player(delta)
+		state = SLEEP
+	else:
+		move_to_player(delta)
+
+func animate():
+	if [AWAKE, LOSING_TRACK].has(state):
+		last_dir_x = (player.global_position - global_position).normalized().x
+		if playerPursuit.player and player.candle:
+			last_dir_x = -last_dir_x
+	var idle = RUN_ANIMATION_CODE if velocity != Vector2.ZERO else IDLE_ANIMATION_CODE
+	var right = RIGHT_ANIMATION_CODE if last_dir_x > 0 else LEFT_ANIMATION_CODE
+	var animation = idle + right
+	animationPlayer.play(animation)
 
 func move_to_player(delta):
 	var dir = (player.global_position - global_position).normalized()
+	if playerPursuit.player and player.candle:
+		dir = -dir
 	velocity = velocity.move_toward(dir * MAX_SPEED, ACCELERATION * delta)
 	velocity = move_and_slide(velocity)
 
@@ -70,11 +103,13 @@ func awake_state(delta):
 		state = LOSING_TRACK
 
 func awakening_state(delta):
+	eyes.visible = true
 	awaken_time -= delta
 	if awaken_time < 0:
 		state = AWAKE
 		
 func sleep_state():
+	eyes.visible = false
 	var visible_player = player_is_visible()
 	if visible_player:
 		awaken_time = AWAKEN_TIME
