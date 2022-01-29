@@ -1,6 +1,6 @@
 extends KinematicBody2D
 
-export var NEEDS_KEY = false
+export var NEEDS_COIN = false
 
 onready var playerDetection = $PlayerDetection
 onready var collisionShape = $CollisionShape2D
@@ -22,9 +22,10 @@ func close():
 	lightOcluder.visible = true
 
 func _on_PlayerDetection_body_entered(body):
-	if not NEEDS_KEY:
+	if not NEEDS_COIN:
 		open()
-	elif body.key:
+	elif body.coin:
+		body.update_coin(false)
 		open()
 
 

@@ -19,13 +19,14 @@ var CANDLE_ANIMATION_CODE = "c"
 
 onready var candle_energy = INITIAL_CANDLE_ENERGY
 var candle = false
-var key = false
+var coin = false
 var velocity = Vector2.ZERO
 var last_input_x = Vector2.ZERO
 onready var animationPlayer = $AnimationPlayer
 onready var light = $Light2D
 
 signal candle_update(amount)
+signal coin_update(has_coin)
 signal die
 
 func ready():
@@ -90,6 +91,9 @@ func _physics_process(delta):
 func move():
 	velocity = move_and_slide(velocity)
 
+func update_coin(has_coin):
+	coin = has_coin
+	emit_signal("coin_update", has_coin)
 
 func _on_Hurtbox_area_entered(area):
 	emit_signal("die")

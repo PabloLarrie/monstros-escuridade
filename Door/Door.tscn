@@ -7,10 +7,10 @@
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 17.0008, 10.8357 )
 
-[sub_resource type="RectangleShape2D" id=2]
+[sub_resource type="RectangleShape2D" id=5]
 extents = Vector2( 16.7545, 2.41817 )
 
-[sub_resource type="CapsuleShape2D" id=3]
+[sub_resource type="CapsuleShape2D" id=6]
 radius = 1.35148
 height = 16.7787
 
@@ -24,32 +24,30 @@ collision_mask = 2
 script = ExtResource( 3 )
 
 [node name="Door" type="Sprite" parent="."]
+position = Vector2( -0.0936432, -16.3877 )
 texture = ExtResource( 1 )
 hframes = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-visible = false
-position = Vector2( -0.315338, 5.57955 )
+position = Vector2( -0.128048, -11.2764 )
 shape = SubResource( 1 )
 
 [node name="CloseDoor" parent="." instance=ExtResource( 2 )]
-visible = false
-position = Vector2( -0.210224, -14.3096 )
+position = Vector2( -0.022934, -31.1656 )
 
 [node name="CollisionShape2D" parent="CloseDoor" index="0"]
-shape = SubResource( 2 )
+shape = SubResource( 5 )
 
 [node name="PlayerDetection" parent="." instance=ExtResource( 2 )]
-visible = false
+position = Vector2( 0.18729, -16.856 )
 
 [node name="CollisionShape2D" parent="PlayerDetection" index="0"]
 position = Vector2( 0, 18 )
 rotation = 1.5708
-shape = SubResource( 3 )
+shape = SubResource( 6 )
 
 [node name="LightOccluder2D" type="LightOccluder2D" parent="."]
-visible = false
-position = Vector2( 0.252834, 3.65336 )
+position = Vector2( 0.440125, -13.2026 )
 occluder = SubResource( 4 )
 
 [connection signal="body_entered" from="CloseDoor" to="." method="_on_CloseDoor_body_entered"]
