@@ -259,10 +259,11 @@ rotation = 1.5708
 shape = SubResource( 1 )
 
 [node name="Light2D" type="Light2D" parent="."]
+position = Vector2( 0, -5 )
 texture = ExtResource( 3 )
-texture_scale = 0.4
-color = Color( 1, 0.937255, 0.262745, 1 )
-energy = 0.4
+texture_scale = 0.3
+color = Color( 1, 0.960784, 0.537255, 1 )
+energy = 0.3
 shadow_gradient_length = 1.0
 shadow_filter = 1
 shadow_filter_smooth = 64.0

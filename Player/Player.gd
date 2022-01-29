@@ -8,8 +8,8 @@ export var FRICTION = 1000
 export var CANDLE_LIGHTING_WEAR = 10
 export var CANDLE_CONSTANT_WEAR = 8
 export var INITIAL_CANDLE_ENERGY = 300
-export var CANDLE_OFF_SIZE = 0.4
-export var CANDLE_OFF_ENERGY = 0.4
+export var CANDLE_OFF_SIZE = 0.3
+export var CANDLE_OFF_ENERGY = 0.3
 
 var IDLE_ANIMATION_CODE = "i"
 var RUN_ANIMATION_CODE = "r"
@@ -17,7 +17,7 @@ var RIGHT_ANIMATION_CODE = "r"
 var LEFT_ANIMATION_CODE = "l"
 var CANDLE_ANIMATION_CODE = "c"
 
-var candle_energy = 100
+onready var candle_energy = INITIAL_CANDLE_ENERGY
 var candle = false
 var velocity = Vector2.ZERO
 var last_input_x = Vector2.ZERO
@@ -31,7 +31,7 @@ func ready():
 	candle_energy = INITIAL_CANDLE_ENERGY
 
 func respawn():
-	candle = false
+	blow_out_candle()
 	candle_energy = INITIAL_CANDLE_ENERGY
 
 func animate(input_vector, horizontal_dir):
