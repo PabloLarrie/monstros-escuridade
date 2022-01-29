@@ -11,6 +11,7 @@ config_version=4
 [application]
 
 config/name="Monstros na escuridade"
+run/main_scene="res://Map/World.tscn"
 config/icon="res://icon.png"
 
 [display]
