@@ -1,4 +1,4 @@
-[gd_resource type="TileSet" load_steps=10 format=2]
+[gd_resource type="TileSet" load_steps=9 format=2]
 
 [ext_resource path="res://Assets/Map/Tilesets/16x16TileSet.v4.png" type="Texture" id=1]
 [ext_resource path="res://Assets/Map/Frames/GrassBackground.png" type="Texture" id=2]
@@ -10,9 +10,6 @@ points = PoolVector2Array( 16, 32, 0, 32, 0, 0, 16, 0 )
 [sub_resource type="NavigationPolygon" id=2]
 vertices = PoolVector2Array( 16, 32, 0, 32, 0, 24, 16, 24 )
 polygons = [ PoolIntArray( 0, 1, 2, 3 ) ]
-
-[sub_resource type="OccluderPolygon2D" id=3]
-polygon = PoolVector2Array( 2, 8, 5, 10, 11, 10, 14, 8, 13, 20, 13, 27, 10, 29, 10, 22, 10, 13, 6, 13, 6, 22, 6, 29, 3, 26, 3, 22, 3, 13 )
 
 [sub_resource type="ConvexPolygonShape2D" id=4]
 points = PoolVector2Array( 16, 32, 0, 32, 0, 24, 16, 24 )
@@ -164,7 +161,6 @@ resource_local_to_scene = true
 7/region = Rect2( 208, 180, 16, 32 )
 7/tile_mode = 0
 7/occluder_offset = Vector2( 0, 0 )
-7/occluder = SubResource( 3 )
 7/navigation_offset = Vector2( 0, 0 )
 7/navigation = SubResource( 2 )
 7/shape_offset = Vector2( 0, 0 )
@@ -216,3 +212,59 @@ resource_local_to_scene = true
 "shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
 } ]
 9/z_index = 0
+10/name = "16x16TileSet.v4.png 10"
+10/texture = ExtResource( 1 )
+10/tex_offset = Vector2( 0, 0 )
+10/modulate = Color( 1, 1, 1, 1 )
+10/region = Rect2( 208, 180, 16, 12 )
+10/tile_mode = 0
+10/occluder_offset = Vector2( 0, 0 )
+10/navigation_offset = Vector2( 0, 0 )
+10/shape_offset = Vector2( 0, 0 )
+10/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+10/shape_one_way = false
+10/shape_one_way_margin = 0.0
+10/shapes = [  ]
+10/z_index = 0
+11/name = "ases.v4.png 11"
+11/texture = ExtResource( 1 )
+11/tex_offset = Vector2( 0, 0 )
+11/modulate = Color( 0, 0, 0, 1 )
+11/region = Rect2( 208, 180, 16, 12 )
+11/tile_mode = 0
+11/occluder_offset = Vector2( 0, 0 )
+11/navigation_offset = Vector2( 0, 0 )
+11/shape_offset = Vector2( 0, 0 )
+11/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+11/shape_one_way = false
+11/shape_one_way_margin = 0.0
+11/shapes = [  ]
+11/z_index = 0
+12/name = "16x16TileSet.v4.png 12"
+12/texture = ExtResource( 1 )
+12/tex_offset = Vector2( 0, 0 )
+12/modulate = Color( 1, 1, 1, 1 )
+12/region = Rect2( 32, 48, 16, 16 )
+12/tile_mode = 0
+12/occluder_offset = Vector2( 0, 0 )
+12/navigation_offset = Vector2( 0, 0 )
+12/shape_offset = Vector2( 0, 0 )
+12/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+12/shape_one_way = false
+12/shape_one_way_margin = 0.0
+12/shapes = [  ]
+12/z_index = 0
+13/name = "16x16TileSet.v4.png 13"
+13/texture = ExtResource( 1 )
+13/tex_offset = Vector2( 0, 0 )
+13/modulate = Color( 1, 0.529412, 0.529412, 1 )
+13/region = Rect2( 32, 48, 16, 16 )
+13/tile_mode = 0
+13/occluder_offset = Vector2( 0, 0 )
+13/navigation_offset = Vector2( 0, 0 )
+13/shape_offset = Vector2( 0, 0 )
+13/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+13/shape_one_way = false
+13/shape_one_way_margin = 0.0
+13/shapes = [  ]
+13/z_index = 0
