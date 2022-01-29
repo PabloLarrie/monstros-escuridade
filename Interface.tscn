@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Assets/bg.png" type="Texture" id=1]
+[ext_resource path="res://Assets/fill.png" type="Texture" id=2]
+[ext_resource path="res://Interface.gd" type="Script" id=3]
+
+[node name="Interface" type="Control"]
+light_mask = 4
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Candle" type="TextureProgress" parent="."]
+light_mask = 4
+margin_left = 2.20971
+margin_top = 2.03293
+margin_right = 18.2097
+margin_bottom = 5.03293
+step = 0.1
+texture_under = ExtResource( 1 )
+texture_progress = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
