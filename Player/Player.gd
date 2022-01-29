@@ -5,7 +5,7 @@ export var MAX_SPEED = 80
 export var FRICTION = 1000
 export var CANDLE_LIGHTING_WEAR = 20
 export var CANDLE_CONSTANT_WEAR = 15
-export var candle_energy = 100
+export var candle_energy = 100000
 
 var IDLE_ANIMATION_CODE = "i"
 var RUN_ANIMATION_CODE = "r"
