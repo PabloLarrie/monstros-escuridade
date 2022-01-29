@@ -19,6 +19,7 @@ var CANDLE_ANIMATION_CODE = "c"
 
 onready var candle_energy = INITIAL_CANDLE_ENERGY
 var candle = false
+var key = false
 var velocity = Vector2.ZERO
 var last_input_x = Vector2.ZERO
 onready var animationPlayer = $AnimationPlayer

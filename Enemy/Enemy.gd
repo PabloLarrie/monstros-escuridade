@@ -45,10 +45,17 @@ func awaken():
 	state = AWAKENING
 
 func player_is_visible():
+	var visible_player = null
 	if playerDetectionCandle.player and playerDetectionCandle.player.candle:
-		return playerDetectionCandle.player
+		visible_player = playerDetectionCandle.player
 	elif playerDetection.player:
-		return playerDetection.player
+		visible_player = playerDetection.player
+		
+	if visible_player:
+		var space_state = get_world_2d().direct_space_state
+		var result = space_state.intersect_ray(position, visible_player.position, [self], 3)
+		if result and result.collider.name == "Player":
+			return visible_player
 		
 func player_in_pursuit_range():
 	if playerPursuit.player:
