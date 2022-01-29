@@ -53,8 +53,8 @@ func player_is_visible():
 		
 	if visible_player:
 		var space_state = get_world_2d().direct_space_state
-		var result = space_state.intersect_ray(position, visible_player.position, [self])
-		if result.collider.name == "Player":
+		var result = space_state.intersect_ray(position, visible_player.position, [self], 3)
+		if result and result.collider.name == "Player":
 			return visible_player
 		
 func player_in_pursuit_range():
