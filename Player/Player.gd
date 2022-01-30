@@ -104,6 +104,6 @@ func update_coin(has_coin):
 		$OpenDoor.play(0.57)
 
 func _on_Hurtbox_area_entered(area):
-	$Dying.play(1.15)
+	$Dying.play()
 	emit_signal("die")
 	

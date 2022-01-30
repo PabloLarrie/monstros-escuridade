@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://World/Walls.tres" type="TileSet" id=1]
 [ext_resource path="res://World/Floor.tres" type="TileSet" id=2]
@@ -11,8 +11,9 @@
 [ext_resource path="res://World/Tutorial.gd" type="Script" id=9]
 [ext_resource path="res://Assets/Fonts/Axolotl.ttf" type="DynamicFontData" id=10]
 [ext_resource path="res://Enemy/Enemy.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Sounds/BirdsSporadicFrogs CM020101.mp3" type="AudioStream" id=12]
 
-[sub_resource type="TileSet" id=3]
+[sub_resource type="TileSet" id=1]
 0/name = "16x16TileSet.v4.png 0"
 0/texture = ExtResource( 7 )
 0/tex_offset = Vector2( 0, 0 )
@@ -35,6 +36,7 @@ font_data = ExtResource( 10 )
 script = ExtResource( 3 )
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
+visible = false
 color = Color( 0, 0, 0, 1 )
 
 [node name="Floor" type="TileMap" parent="."]
@@ -85,7 +87,7 @@ current = true
 [node name="Node2D" type="Node2D" parent="Collidables"]
 
 [node name="Columns" type="TileMap" parent="."]
-tile_set = SubResource( 3 )
+tile_set = SubResource( 1 )
 cell_size = Vector2( 16, 16 )
 format = 1
 tile_data = PoolIntArray( -720908, 536870912, 0, -720906, 536870912, 0, -720904, 536870912, 0, -65551, 536870912, 0, -65548, 536870912, 0, -65545, 536870912, 0, -65542, 536870912, 0, -65539, 536870912, 0, -131072, 536870912, 0, -131069, 536870912, 0, -131066, 536870912, 0, -131062, 536870912, 0, -131058, 536870912, 0, -131055, 536870912, 0 )
@@ -115,6 +117,11 @@ __meta__ = {
 }
 
 [node name="Tween" type="Tween" parent="CanvasLayer/Tutorial"]
+
+[node name="IntroSound" type="AudioStreamPlayer" parent="CanvasLayer/Tutorial"]
+stream = ExtResource( 12 )
+pitch_scale = 0.85
+autoplay = true
 
 [node name="Checkpoint" type="Position2D" parent="."]
 position = Vector2( 160, 107 )

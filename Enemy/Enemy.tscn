@@ -176,20 +176,6 @@ tracks/3/keys = {
 "update": 1,
 "values": [ true ]
 }
-tracks/4/type = "audio"
-tracks/4/path = NodePath("AudioStreamPlayer")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/keys = {
-"clips": [ {
-"end_offset": 0.42,
-"start_offset": 1.35,
-"stream": ExtResource( 4 )
-} ],
-"times": PoolRealArray( 0.06 )
-}
 
 [sub_resource type="Animation" id=9]
 length = 0.4
@@ -241,24 +227,6 @@ tracks/3/keys = {
 "transitions": PoolRealArray( 1, 1, 1, 1 ),
 "update": 1,
 "values": [ Vector2( 1, 1 ), Vector2( 2, 1 ), Vector2( 3, 1 ), Vector2( 4, 1 ) ]
-}
-tracks/4/type = "audio"
-tracks/4/path = NodePath("AudioStreamPlayer")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/keys = {
-"clips": [ {
-"end_offset": 0.0,
-"start_offset": 0.0,
-"stream": ExtResource( 4 )
-}, {
-"end_offset": 0.0,
-"start_offset": 0.0,
-"stream": null
-} ],
-"times": PoolRealArray( -2.4, 6.7 )
 }
 
 [sub_resource type="CapsuleShape2D" id=10]
