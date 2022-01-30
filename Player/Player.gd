@@ -35,6 +35,7 @@ func ready():
 
 func respawn():
 	blow_out_candle()
+	update_coin(false)
 	candle_energy = INITIAL_CANDLE_ENERGY
 
 func animate(input_vector, horizontal_dir):
