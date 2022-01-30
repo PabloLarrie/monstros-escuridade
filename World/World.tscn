@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://World/Walls.tres" type="TileSet" id=1]
 [ext_resource path="res://World/Floor.tres" type="TileSet" id=2]
@@ -8,7 +8,8 @@
 [ext_resource path="res://Player/Player.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Assets/Map/Tilesets/16x16TileSet.v4.png" type="Texture" id=7]
 [ext_resource path="res://Door/Door.tscn" type="PackedScene" id=8]
-[ext_resource path="res://Coin/Coin.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Enemy/Enemy.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Coin/Coin.tscn" type="PackedScene" id=10]
 
 [sub_resource type="TileSet" id=1]
 0/name = "16x16TileSet.v4.png 0"
@@ -30,6 +31,7 @@
 script = ExtResource( 3 )
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
+visible = false
 color = Color( 0, 0, 0, 1 )
 
 [node name="Floor" type="TileMap" parent="."]
@@ -67,9 +69,6 @@ position = Vector2( -135.634, -87.0219 )
 position = Vector2( 207.725, 0.244226 )
 NEEDS_COIN = true
 
-[node name="Coin" parent="Collidables/Door" instance=ExtResource( 9 )]
-position = Vector2( -31.3079, 37.2176 )
-
 [node name="Player" parent="Collidables" instance=ExtResource( 6 )]
 position = Vector2( 211.492, 50.7765 )
 z_as_relative = false
@@ -91,3 +90,9 @@ tile_data = PoolIntArray( -720908, 536870912, 0, -720906, 536870912, 0, -720904,
 
 [node name="Checkpoint" type="Position2D" parent="."]
 position = Vector2( 160, 90 )
+
+[node name="Coin" parent="." instance=ExtResource( 10 )]
+position = Vector2( 156.842, 54.7874 )
+
+[node name="Enemy" parent="." instance=ExtResource( 9 )]
+position = Vector2( 147.817, 21.2614 )

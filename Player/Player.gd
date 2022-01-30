@@ -24,6 +24,7 @@ var velocity = Vector2.ZERO
 var last_input_x = Vector2.ZERO
 onready var animationPlayer = $AnimationPlayer
 onready var light = $Light2D
+onready var lightAudio = $LightOn
 
 signal candle_update(amount)
 signal coin_update(has_coin)
@@ -47,17 +48,20 @@ func animate(input_vector, horizontal_dir):
 		animation_speed = 1 - (CANDLE_ANIMATION_SPEED_LOSS * int(candle))
 	animationPlayer.play(animation, 1, animation_speed)
 
-
 func light_candle():
 	candle = true
 	light.texture_scale = 1
 	light.energy = 1
 	candle_energy -= CANDLE_LIGHTING_WEAR
+	$LightOn.play(0.25)
+		
 
 func blow_out_candle():
 	candle = false
 	light.texture_scale = CANDLE_OFF_SIZE
 	light.energy = CANDLE_OFF_ENERGY
+	$LightOff.play(0.11)
+	
 
 func _physics_process(delta):
 	if Input.is_action_just_pressed("candle"):
@@ -65,7 +69,7 @@ func _physics_process(delta):
 	
 	if Input.is_action_just_released("candle"):
 		blow_out_candle()
-	
+		
 	if candle:
 		candle_energy -= CANDLE_CONSTANT_WEAR * delta
 		if candle_energy <= 0:
@@ -94,6 +98,12 @@ func move():
 func update_coin(has_coin):
 	coin = has_coin
 	emit_signal("coin_update", has_coin)
+	if coin != false:
+		$GetCoin.play()
+	else: 
+		$OpenDoor.play(0.57)
 
 func _on_Hurtbox_area_entered(area):
+	$Dying.play(1.15)
 	emit_signal("die")
+	

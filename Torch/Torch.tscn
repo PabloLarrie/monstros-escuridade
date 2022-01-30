@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Player/LightSprite.png" type="Texture" id=1]
 [ext_resource path="res://Assets/Light/torch.png" type="Texture" id=2]
+[ext_resource path="res://Sounds/fuego_crepitando.wav" type="AudioStream" id=3]
 
 [sub_resource type="Animation" id=1]
 resource_name = "burning"
@@ -19,6 +20,16 @@ tracks/0/keys = {
 "update": 1,
 "values": [ 1, 2, 3, 4 ]
 }
+tracks/1/type = "audio"
+tracks/1/path = NodePath("Crackle")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"clips": [  ],
+"times": PoolRealArray(  )
+}
 
 [sub_resource type="CircleShape2D" id=2]
 radius = 45.399
@@ -27,7 +38,7 @@ radius = 45.399
 light_mask = 0
 texture = ExtResource( 2 )
 hframes = 5
-frame = 4
+frame = 1
 
 [node name="Light2D" type="Light2D" parent="."]
 texture = ExtResource( 1 )
@@ -48,3 +59,8 @@ collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="KinematicBody2D"]
 shape = SubResource( 2 )
+
+[node name="Crackle" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 3 )
+volume_db = 12.568
+pitch_scale = 1.38

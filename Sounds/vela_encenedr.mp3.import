@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/vela_encenedr.mp3-7a1ffbec4eac3b001f4b17c3a0a8a584.mp3str"
+
+[deps]
+
+source_file="res://Sounds/vela_encenedr.mp3"
+dest_files=[ "res://.import/vela_encenedr.mp3-7a1ffbec4eac3b001f4b17c3a0a8a584.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

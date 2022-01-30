@@ -1,8 +1,9 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://Assets/Characters/enemy.png" type="Texture" id=1]
 [ext_resource path="res://Enemy/Enemy.gd" type="Script" id=2]
 [ext_resource path="res://Enemy/PlayerDetection.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Sounds/Sonidos_monstruos.wav" type="AudioStream" id=4]
 
 [sub_resource type="CanvasItemMaterial" id=1]
 blend_mode = 1
@@ -175,6 +176,20 @@ tracks/3/keys = {
 "update": 1,
 "values": [ true ]
 }
+tracks/4/type = "audio"
+tracks/4/path = NodePath("AudioStreamPlayer")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"clips": [ {
+"end_offset": 0.42,
+"start_offset": 1.35,
+"stream": ExtResource( 4 )
+} ],
+"times": PoolRealArray( 0.06 )
+}
 
 [sub_resource type="Animation" id=9]
 length = 0.4
@@ -227,6 +242,24 @@ tracks/3/keys = {
 "update": 1,
 "values": [ Vector2( 1, 1 ), Vector2( 2, 1 ), Vector2( 3, 1 ), Vector2( 4, 1 ) ]
 }
+tracks/4/type = "audio"
+tracks/4/path = NodePath("AudioStreamPlayer")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"clips": [ {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 4 )
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": null
+} ],
+"times": PoolRealArray( -2.4, 6.7 )
+}
 
 [sub_resource type="CapsuleShape2D" id=10]
 radius = 4.99192
@@ -247,7 +280,7 @@ light_mask = 3
 texture = ExtResource( 1 )
 hframes = 5
 vframes = 2
-frame = 2
+frame = 4
 
 [node name="Eyes" type="Sprite" parent="."]
 visible = false
@@ -255,7 +288,7 @@ material = SubResource( 1 )
 texture = ExtResource( 1 )
 hframes = 5
 vframes = 2
-frame = 7
+frame = 9
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
 position = Vector2( 0, 2 )
@@ -296,6 +329,9 @@ collision_mask = 4
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
 position = Vector2( -0.078743, -1.49616 )
 shape = SubResource( 10 )
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 4 )
 
 [editable path="PlayerDetectionCandle"]
 [editable path="PlayerDetection"]
