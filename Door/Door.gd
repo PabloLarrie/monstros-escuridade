@@ -8,10 +8,13 @@ onready var lightOcluder = $LightOccluder2D
 onready var sprite = $Door
 	
 
+signal player_opened
+
 func respawn():
 	close()
 
 func open():
+	emit_signal("player_opened")
 	collisionShape.set_deferred("disabled", true)
 	sprite.frame = 1
 	lightOcluder.visible = false

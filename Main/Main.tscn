@@ -1,0 +1,50 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://Assets/UI/menu.png" type="Texture" id=1]
+[ext_resource path="res://Assets/UI/llama1.png" type="Texture" id=2]
+[ext_resource path="res://Assets/UI/llama3.png" type="Texture" id=3]
+[ext_resource path="res://Assets/UI/llama2.png" type="Texture" id=4]
+[ext_resource path="res://Main/Main.gd" type="Script" id=5]
+[ext_resource path="res://Assets/Fonts/Axolotl.ttf" type="DynamicFontData" id=6]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 2 ), ExtResource( 4 ), ExtResource( 3 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[sub_resource type="DynamicFont" id=2]
+font_data = ExtResource( 6 )
+
+[node name="Menu" type="Sprite"]
+texture = ExtResource( 1 )
+centered = false
+script = ExtResource( 5 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+frames = SubResource( 1 )
+playing = true
+centered = false
+
+[node name="Tween" type="Tween" parent="."]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Label" type="Label" parent="CanvasLayer"]
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = -23.0
+margin_bottom = -9.0
+custom_fonts/font = SubResource( 2 )
+text = "Prema a barra espaciadora para comezar"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TweenRepeater" type="Tween" parent="CanvasLayer"]
+repeat = true
+playback/repeat = true
