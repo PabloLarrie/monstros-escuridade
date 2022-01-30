@@ -8,6 +8,11 @@ var checkpoint_used = false
 
 signal checkpoint(position)
 
+func _ready():
+	if not is_checkpoint:
+		light.energy = 1
+		light.texture_scale = 1
+		
 func _on_CandleRefill_body_entered(body):
 	body.candle_energy = body.INITIAL_CANDLE_ENERGY
 	light.energy = 1

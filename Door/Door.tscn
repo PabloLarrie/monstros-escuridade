@@ -21,7 +21,7 @@ polygon = PoolVector2Array( 15.4128, -9.81283, 16.4347, -6.84086, 17.5411, -6.91
 [node name="Door" type="KinematicBody2D" groups=[
 "respawnable",
 ]]
-collision_mask = 2
+collision_mask = 6
 script = ExtResource( 3 )
 
 [node name="Door" type="Sprite" parent="."]
@@ -51,7 +51,6 @@ rotation = 1.5708
 shape = SubResource( 3 )
 
 [node name="LightOccluder2D" type="LightOccluder2D" parent="."]
-visible = false
 position = Vector2( 0.440125, -13.2026 )
 occluder = SubResource( 4 )
 

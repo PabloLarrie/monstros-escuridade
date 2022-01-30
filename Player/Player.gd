@@ -105,6 +105,8 @@ func update_coin(has_coin):
 
 
 func _on_Hurtbox_area_entered(area):
+	if area.get_parent().BOSS:
+		get_tree().change_scene("res://Credits/Credits.tscn")
 	$Dying.play()
 	emit_signal("die")
 	

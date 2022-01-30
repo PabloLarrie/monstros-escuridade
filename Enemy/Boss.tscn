@@ -13,13 +13,13 @@ radius = 2.28761
 height = 4.30618
 
 [sub_resource type="CircleShape2D" id=3]
-radius = 28.2882
+radius = 16.6759
 
 [sub_resource type="CircleShape2D" id=4]
-radius = 42.4892
+radius = 22.6259
 
 [sub_resource type="CircleShape2D" id=5]
-radius = 50.0
+radius = 27.9833
 
 [sub_resource type="Animation" id=6]
 resource_name = "il"
@@ -230,20 +230,21 @@ tracks/3/keys = {
 }
 
 [sub_resource type="CapsuleShape2D" id=10]
-radius = 4.99192
-height = 1.58371
+radius = 3.50312
+height = 2.4834
 
-[node name="Enemy" type="KinematicBody2D" groups=[
+[node name="Boss" type="KinematicBody2D" groups=[
 "respawnable",
 ]]
 light_mask = 3
+scale = Vector2( 4, 4 )
 collision_layer = 5
 collision_mask = 4
 script = ExtResource( 2 )
+BOSS = true
 
 [node name="Enemy" type="Sprite" parent="."]
 light_mask = 3
-position = Vector2( -0.222725, -5 )
 texture = ExtResource( 1 )
 hframes = 5
 vframes = 2
@@ -252,20 +253,19 @@ frame = 4
 [node name="Eyes" type="Sprite" parent="."]
 visible = false
 material = SubResource( 1 )
-position = Vector2( 0, -5 )
 texture = ExtResource( 1 )
 hframes = 5
 vframes = 2
 frame = 9
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
-position = Vector2( -0.472469, -2.32267 )
+visible = false
+position = Vector2( 0, 2 )
 rotation = 1.5708
 shape = SubResource( 2 )
 
 [node name="PlayerDetectionCandle" parent="." instance=ExtResource( 3 )]
 visible = false
-position = Vector2( 0, -5 )
 collision_layer = 0
 
 [node name="CollisionShape2D" parent="PlayerDetectionCandle" index="0"]
@@ -273,7 +273,6 @@ shape = SubResource( 3 )
 
 [node name="PlayerDetection" parent="." instance=ExtResource( 3 )]
 visible = false
-position = Vector2( 0, -5 )
 collision_layer = 0
 
 [node name="CollisionShape2D" parent="PlayerDetection" index="0"]
@@ -281,7 +280,6 @@ shape = SubResource( 4 )
 
 [node name="PlayerPursuit" parent="." instance=ExtResource( 3 )]
 visible = false
-position = Vector2( 0, -5 )
 collision_layer = 0
 
 [node name="CollisionShape2D" parent="PlayerPursuit" index="0"]
@@ -294,13 +292,13 @@ anims/rl = SubResource( 8 )
 anims/rr = SubResource( 9 )
 
 [node name="Hitbox" type="Area2D" parent="."]
-visible = false
-position = Vector2( 0, -5 )
+position = Vector2( -0.327753, 2.10699 )
 collision_layer = 0
 collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
-position = Vector2( -0.078743, -1.49616 )
+position = Vector2( -0.21921, 0.329902 )
+rotation = 1.5708
 shape = SubResource( 10 )
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]

@@ -4,6 +4,7 @@ export var ACCELERATION = 400
 export var MAX_SPEED = 60
 export var AWAKEN_TIME = 1
 export var TRACK_LOST_TIME = 2
+export var BOSS = false
 
 enum {
 	SLEEP,
@@ -99,6 +100,8 @@ func move_to_player(delta):
 	var dir = (player.global_position - global_position).normalized()
 	if playerPursuit.player and player.candle:
 		dir = -dir
+		if BOSS:
+			velocity = Vector2.ZERO
 	velocity = velocity.move_toward(dir * MAX_SPEED, ACCELERATION * delta)
 	velocity = move_and_slide(velocity)
 

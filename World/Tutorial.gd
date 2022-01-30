@@ -2,8 +2,8 @@ extends Label
 
 var MESSAGE_1 = "Preme a barra espaciadora ou fai click para acender a túa vela"
 var MESSAGE_2 = "Podes moverte con W, A, S, D ou os controis de frechas"
-var MESSAGE_3 = "Cando te achegues a un facho, acenderase. Os fachos recargan a enerxía da vela"
-var MESSAGE_4 = "Algunhas portas requiren que colectes unha moeda antes de que se abran"
+var MESSAGE_3 = "Cando te achegues a un facho recargarás a túa vela"
+var MESSAGE_4 = "Algunhas portas requiren que colectes unha chave antes de que se abran"
 var MESSAGE_5 = "Fuxe dos monstros na escuridade"
 var FADE_TIME = 3
 
