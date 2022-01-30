@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://Player/Player.gd" type="Script" id=1]
 [ext_resource path="res://Player/player.png" type="Texture" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://Sounds/vela_encenedr.mp3" type="AudioStream" id=4]
 [ext_resource path="res://Sounds/soplar_vela.mp3" type="AudioStream" id=5]
 [ext_resource path="res://Sounds/Conseguir_llave.wav" type="AudioStream" id=6]
+[ext_resource path="res://Sounds/327735__distillerystudio__error-04.wav" type="AudioStream" id=7]
 [ext_resource path="res://Sounds/Muerte (mp3cut.net).wav" type="AudioStream" id=8]
 
 [sub_resource type="CapsuleShape2D" id=1]
@@ -310,5 +311,8 @@ stream = ExtResource( 8 )
 pitch_scale = 0.72
 
 [node name="FailTorch" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 7 )
+volume_db = 7.939
+pitch_scale = 1.27
 
 [connection signal="area_entered" from="Hurtbox" to="." method="_on_Hurtbox_area_entered"]

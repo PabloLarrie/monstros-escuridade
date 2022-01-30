@@ -75,6 +75,8 @@ func _physics_process(delta):
 		candle_energy -= CANDLE_CONSTANT_WEAR * delta
 		if candle_energy <= 0:
 			blow_out_candle()
+			$FailTorch.play(0.11)
+			
 	
 	var input_vector = Vector2.ZERO
 	input_vector.x = Input.get_action_strength("ui_right") - Input.get_action_strength("ui_left")

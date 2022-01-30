@@ -26,8 +26,7 @@ centered = false
 script = ExtResource( 5 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
-frames = SubResource( 3 )
-frame = 1
+frames = SubResource( 1 )
 playing = true
 centered = false
 

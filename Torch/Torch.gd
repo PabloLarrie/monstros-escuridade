@@ -16,3 +16,4 @@ func _on_CandleRefill_body_entered(body):
 	if is_checkpoint and not checkpoint_used:
 		emit_signal("checkpoint", checkpoint.global_position)
 		checkpoint_used = true
+		$NewTorch.play()
