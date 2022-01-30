@@ -27,6 +27,7 @@ script = ExtResource( 5 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 1 )
+frame = 1
 playing = true
 centered = false
 
@@ -40,7 +41,7 @@ autoplay = true
 
 [node name="Intro2" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 8 )
-volume_db = 11.908
+volume_db = -10.0
 pitch_scale = 0.39
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]

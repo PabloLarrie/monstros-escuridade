@@ -300,10 +300,11 @@ pitch_scale = 0.8
 [node name="LightOff" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 5 )
 volume_db = 9.351
-pitch_scale = 0.88
+pitch_scale = 1.17
 
 [node name="GetCoin" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 6 )
+volume_db = 2.0
 pitch_scale = 2.76
 
 [node name="Dying" type="AudioStreamPlayer" parent="."]
@@ -312,7 +313,7 @@ pitch_scale = 0.72
 
 [node name="FailTorch" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 7 )
-volume_db = 7.939
+volume_db = 4.0
 pitch_scale = 1.27
 
 [connection signal="area_entered" from="Hurtbox" to="." method="_on_Hurtbox_area_entered"]

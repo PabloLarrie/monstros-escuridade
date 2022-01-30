@@ -741,9 +741,9 @@ autoplay = true
 [node name="Checkpoint" type="Position2D" parent="."]
 position = Vector2( 160, 107 )
 
-[node name="Intro" type="AudioStreamPlayer" parent="."]
+[node name="Music" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 13 )
-volume_db = 11.908
+volume_db = -3.0
 pitch_scale = 1.37
 autoplay = true
 
