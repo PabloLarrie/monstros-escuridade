@@ -7,7 +7,7 @@
 [ext_resource path="res://Main/Main.gd" type="Script" id=5]
 [ext_resource path="res://Assets/Fonts/Axolotl.ttf" type="DynamicFontData" id=6]
 
-[sub_resource type="SpriteFrames" id=1]
+[sub_resource type="SpriteFrames" id=3]
 animations = [ {
 "frames": [ ExtResource( 2 ), ExtResource( 4 ), ExtResource( 3 ) ],
 "loop": true,
@@ -24,7 +24,7 @@ centered = false
 script = ExtResource( 5 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
-frames = SubResource( 1 )
+frames = SubResource( 3 )
 playing = true
 centered = false
 
