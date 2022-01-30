@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/507206__magmi-soundtracks__sad-war-music-01.mp3-271739d44144509b5321bdfea0dd78ee.mp3str"
+
+[deps]
+
+source_file="res://Sounds/507206__magmi-soundtracks__sad-war-music-01.mp3"
+dest_files=[ "res://.import/507206__magmi-soundtracks__sad-war-music-01.mp3-271739d44144509b5321bdfea0dd78ee.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

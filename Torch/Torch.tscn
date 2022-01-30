@@ -1,8 +1,10 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Player/LightSprite.png" type="Texture" id=1]
 [ext_resource path="res://Assets/Light/torch.png" type="Texture" id=2]
-[ext_resource path="res://Torch/Torch.gd" type="Script" id=3]
+[ext_resource path="res://Sounds/fuego_crepitando.wav" type="AudioStream" id=3]
+[ext_resource path="res://Torch/Torch.gd" type="Script" id=4]
+[ext_resource path="res://Sounds/376748__zenithinfinitivestudios__fantasy-ui-button-6.wav" type="AudioStream" id=5]
 
 [sub_resource type="Animation" id=1]
 resource_name = "burning"
@@ -44,7 +46,7 @@ light_mask = 15
 texture = ExtResource( 2 )
 hframes = 5
 frame = 4
-script = ExtResource( 3 )
+script = ExtResource( 4 )
 
 [node name="Light2D" type="Light2D" parent="."]
 texture = ExtResource( 1 )
@@ -76,5 +78,17 @@ shape = SubResource( 3 )
 
 [node name="Checkpoint" type="Position2D" parent="."]
 position = Vector2( 0, -33.3354 )
+
+[node name="TorchSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 3 )
+volume_db = 15.0
+autoplay = true
+max_distance = 160.0
+
+[node name="NewTorch" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 5 )
+volume_db = 20.732
+pitch_scale = 1.35
+max_distance = 160.0
 
 [connection signal="body_entered" from="CandleRefill" to="." method="_on_CandleRefill_body_entered"]
