@@ -13,10 +13,10 @@ radius = 2.28761
 height = 4.30618
 
 [sub_resource type="CircleShape2D" id=3]
-radius = 60.0
+radius = 63.3258
 
 [sub_resource type="CircleShape2D" id=4]
-radius = 30.0
+radius = 42.4892
 
 [sub_resource type="CircleShape2D" id=5]
 radius = 50.0
@@ -240,8 +240,6 @@ light_mask = 3
 collision_layer = 5
 collision_mask = 4
 script = ExtResource( 2 )
-ACCELERATION = 600
-MAX_SPEED = 80
 
 [node name="Enemy" type="Sprite" parent="."]
 light_mask = 3
@@ -259,26 +257,24 @@ vframes = 2
 frame = 9
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
+visible = false
 position = Vector2( 0, 2 )
 rotation = 1.5708
 shape = SubResource( 2 )
 
 [node name="PlayerDetectionCandle" parent="." instance=ExtResource( 3 )]
-visible = false
 collision_layer = 0
 
 [node name="CollisionShape2D" parent="PlayerDetectionCandle" index="0"]
 shape = SubResource( 3 )
 
 [node name="PlayerDetection" parent="." instance=ExtResource( 3 )]
-visible = false
 collision_layer = 0
 
 [node name="CollisionShape2D" parent="PlayerDetection" index="0"]
 shape = SubResource( 4 )
 
 [node name="PlayerPursuit" parent="." instance=ExtResource( 3 )]
-visible = false
 collision_layer = 0
 
 [node name="CollisionShape2D" parent="PlayerPursuit" index="0"]
@@ -291,6 +287,7 @@ anims/rl = SubResource( 8 )
 anims/rr = SubResource( 9 )
 
 [node name="Hitbox" type="Area2D" parent="."]
+visible = false
 collision_layer = 0
 collision_mask = 4
 
