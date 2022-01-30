@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://World/Walls.tres" type="TileSet" id=1]
 [ext_resource path="res://World/Floor.tres" type="TileSet" id=2]
@@ -8,10 +8,11 @@
 [ext_resource path="res://Player/Player.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Assets/Map/Tilesets/16x16TileSet.v4.png" type="Texture" id=7]
 [ext_resource path="res://Door/Door.tscn" type="PackedScene" id=8]
-[ext_resource path="res://Enemy/Enemy.tscn" type="PackedScene" id=9]
-[ext_resource path="res://Coin/Coin.tscn" type="PackedScene" id=10]
+[ext_resource path="res://World/Tutorial.gd" type="Script" id=9]
+[ext_resource path="res://Assets/Fonts/Axolotl.ttf" type="DynamicFontData" id=10]
+[ext_resource path="res://Enemy/Enemy.tscn" type="PackedScene" id=11]
 
-[sub_resource type="TileSet" id=1]
+[sub_resource type="TileSet" id=3]
 0/name = "16x16TileSet.v4.png 0"
 0/texture = ExtResource( 7 )
 0/tex_offset = Vector2( 0, 0 )
@@ -27,11 +28,13 @@
 0/shapes = [  ]
 0/z_index = 0
 
+[sub_resource type="DynamicFont" id=2]
+font_data = ExtResource( 10 )
+
 [node name="World" type="Node2D"]
 script = ExtResource( 3 )
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
-visible = false
 color = Color( 0, 0, 0, 1 )
 
 [node name="Floor" type="TileMap" parent="."]
@@ -65,21 +68,24 @@ position = Vector2( 232, 0.359684 )
 light_mask = 1
 position = Vector2( -135.634, -87.0219 )
 
-[node name="Door" parent="Collidables" instance=ExtResource( 8 )]
+[node name="Door" parent="Collidables" groups=[
+"door",
+] instance=ExtResource( 8 )]
 position = Vector2( 207.725, 0.244226 )
-NEEDS_COIN = true
 
 [node name="Player" parent="Collidables" instance=ExtResource( 6 )]
-position = Vector2( 211.492, 50.7765 )
+position = Vector2( 160, 107 )
 z_as_relative = false
-INITIAL_CANDLE_ENERGY = 50000
+INITIAL_CANDLE_ENERGY = 150
 
 [node name="Camera2D" type="Camera2D" parent="Collidables/Player"]
 position = Vector2( -0.166855, 1.66855 )
 current = true
 
+[node name="Node2D" type="Node2D" parent="Collidables"]
+
 [node name="Columns" type="TileMap" parent="."]
-tile_set = SubResource( 1 )
+tile_set = SubResource( 3 )
 cell_size = Vector2( 16, 16 )
 format = 1
 tile_data = PoolIntArray( -720908, 536870912, 0, -720906, 536870912, 0, -720904, 536870912, 0, -65551, 536870912, 0, -65548, 536870912, 0, -65545, 536870912, 0, -65542, 536870912, 0, -65539, 536870912, 0, -131072, 536870912, 0, -131069, 536870912, 0, -131066, 536870912, 0, -131062, 536870912, 0, -131058, 536870912, 0, -131055, 536870912, 0 )
@@ -88,11 +94,30 @@ tile_data = PoolIntArray( -720908, 536870912, 0, -720906, 536870912, 0, -720904,
 
 [node name="Interface" parent="CanvasLayer" instance=ExtResource( 4 )]
 
+[node name="Tutorial" type="Label" parent="CanvasLayer"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -160.0
+margin_top = -21.0
+margin_right = 160.0
+margin_bottom = -7.0
+grow_vertical = 0
+custom_fonts/font = SubResource( 2 )
+text = "Preme a barra espaciadora ou fai click para acender a túa vela"
+align = 1
+autowrap = true
+max_lines_visible = 2
+script = ExtResource( 9 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Tween" type="Tween" parent="CanvasLayer/Tutorial"]
+
 [node name="Checkpoint" type="Position2D" parent="."]
-position = Vector2( 160, 90 )
+position = Vector2( 160, 107 )
 
-[node name="Coin" parent="." instance=ExtResource( 10 )]
-position = Vector2( 156.842, 54.7874 )
-
-[node name="Enemy" parent="." instance=ExtResource( 9 )]
-position = Vector2( 147.817, 21.2614 )
+[node name="Enemy" parent="." instance=ExtResource( 11 )]
+position = Vector2( 108.378, -32.9061 )
