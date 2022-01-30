@@ -57,6 +57,7 @@ occluder = SubResource( 4 )
 
 [node name="OpenDoor" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 4 )
+volume_db = 14.29
 pitch_scale = 0.67
 
 [connection signal="body_entered" from="CloseDoor" to="." method="_on_CloseDoor_body_entered"]
