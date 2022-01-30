@@ -32,9 +32,11 @@ func _ready():
 		FADE_TIME*2
 	)
 	tweenRepeater.start()
-
+	
+	
 func _process(delta):
 	if Input.is_action_just_pressed("candle"):
+		$Intro2.play()		
 		label.visible = false
 		tween.interpolate_property(
 			self, 

@@ -35,7 +35,7 @@ func _ready():
 	var torches = get_tree().get_nodes_in_group("torch")
 	for torch in torches:
 		torch.connect("checkpoint", self, "on_update_checkpoint")
-
+	
 	respawn_coins()
 
 func on_death():

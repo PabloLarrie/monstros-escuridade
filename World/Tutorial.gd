@@ -14,7 +14,6 @@ onready var tween = $Tween
 
 func _ready():
 	text = MESSAGE_1
-	$IntroSound.play()
 	
 func set_message(message):
 	text = message

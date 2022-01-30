@@ -18,6 +18,7 @@ func open():
 	collisionShape.set_deferred("disabled", true)
 	sprite.frame = 1
 	lightOcluder.visible = false
+	$OpenDoor.play(0.57)
 
 func close():
 	collisionShape.set_deferred("disabled", false)

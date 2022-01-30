@@ -101,8 +101,7 @@ func update_coin(has_coin):
 	emit_signal("coin_update", has_coin)
 	if coin != false:
 		$GetCoin.play()
-	else: 
-		$OpenDoor.play(0.57)
+
 
 func _on_Hurtbox_area_entered(area):
 	$Dying.play()
