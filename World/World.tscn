@@ -32,16 +32,6 @@ tracks/0/keys = {
 "update": 1,
 "values": [ 1, 2, 3, 4 ]
 }
-tracks/1/type = "audio"
-tracks/1/path = NodePath("Crackle")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"clips": [  ],
-"times": PoolRealArray(  )
-}
 
 [sub_resource type="Animation" id=2]
 resource_name = "burning"
@@ -58,16 +48,6 @@ tracks/0/keys = {
 "transitions": PoolRealArray( 1, 1, 1, 1 ),
 "update": 1,
 "values": [ 1, 2, 3, 4 ]
-}
-tracks/1/type = "audio"
-tracks/1/path = NodePath("Crackle")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"clips": [  ],
-"times": PoolRealArray(  )
 }
 
 [sub_resource type="TileSet" id=3]
@@ -369,6 +349,7 @@ position = Vector2( 231.439, 25.8957 )
 [node name="Torch3" parent="Collidables" instance=ExtResource( 5 )]
 light_mask = 1
 position = Vector2( -135.634, -87.0219 )
+frame = 1
 is_checkpoint = true
 
 [node name="Checkpoint" parent="Collidables/Torch3" index="4"]
@@ -377,6 +358,7 @@ position = Vector2( 0.210844, -17.7641 )
 [node name="Torch4" parent="Collidables" instance=ExtResource( 5 )]
 light_mask = 1
 position = Vector2( -107.344, -532.378 )
+frame = 1
 is_checkpoint = true
 
 [node name="AnimationPlayer" parent="Collidables/Torch4" index="1"]
@@ -388,6 +370,7 @@ position = Vector2( 0.210844, -17.7641 )
 [node name="Torch5" parent="Collidables" instance=ExtResource( 5 )]
 light_mask = 1
 position = Vector2( 281.156, -759.378 )
+frame = 1
 is_checkpoint = true
 
 [node name="AnimationPlayer" parent="Collidables/Torch5" index="1"]
@@ -399,6 +382,7 @@ position = Vector2( 18.0288, 0.499249 )
 [node name="Torch6" parent="Collidables" instance=ExtResource( 5 )]
 light_mask = 1
 position = Vector2( 312.94, -526.296 )
+frame = 1
 is_checkpoint = true
 
 [node name="Checkpoint" parent="Collidables/Torch6" index="4"]
@@ -505,6 +489,7 @@ volume_db = -3.0
 pitch_scale = 1.37
 autoplay = true
 
+[editable path="Collidables/MagicTorch"]
 [editable path="Collidables/Torch3"]
 [editable path="Collidables/Torch4"]
 [editable path="Collidables/Torch5"]

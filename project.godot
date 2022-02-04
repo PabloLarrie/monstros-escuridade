@@ -8,12 +8,34 @@
 
 config_version=4
 
+_global_script_classes=[ {
+"base": "Reference",
+"class": "AK",
+"language": "GDScript",
+"path": "res://wwise/GeneratedSoundBanks/wwise_ids.gd"
+}, {
+"base": "Reference",
+"class": "AkUtils",
+"language": "GDScript",
+"path": "res://wwise/runtime/helpers/ak_utils.gd"
+} ]
+_global_script_class_icons={
+"AK": "",
+"AkUtils": ""
+}
+
 [application]
 
 config/name="Monstros na escuridade"
 run/main_scene="res://Main/Main.tscn"
 config/icon="res://icon.png"
 <<<<<<<Updatedupstreamrun/main_scene="res://Map/World.tscn"
+
+[autoload]
+
+WwiseSettings="*res://wwise/wwise_settings.gd"
+Wwise="*res://wwise/bin/wwise-gdnative.gdns"
+Waapi="*res://wwise/bin/waapi-gdnative-debug.gdns"
 
 [display]
 
@@ -25,6 +47,10 @@ window/size/test_width=960
 window/size/test_height=720
 window/stretch/mode="2d"
 window/stretch/aspect="keep"
+
+[editor_plugins]
+
+enabled=PoolStringArray( "res://addons/waapi_picker/plugin.cfg", "res://addons/wwise_build_export/plugin.cfg", "res://addons/wwise_custom_nodes/plugin.cfg", "res://addons/wwise_ids_converter/plugin.cfg" )
 
 [input]
 
