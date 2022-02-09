@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/fuego_crepitando.wav-dd189820fa1b96d533d31011d84dc634.sample"
+
+[deps]
+
+source_file="res://assets/Sounds/fuego_crepitando.wav"
+dest_files=[ "res://.import/fuego_crepitando.wav-dd189820fa1b96d533d31011d84dc634.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

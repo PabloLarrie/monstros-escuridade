@@ -8,10 +8,20 @@
 
 config_version=4
 
+_global_script_classes=[ {
+"base": "Control",
+"class": "VirtualJoystick",
+"language": "GDScript",
+"path": "res://addons/joystick/virtual_joystick.gd"
+} ]
+_global_script_class_icons={
+"VirtualJoystick": ""
+}
+
 [application]
 
 config/name="Monstros na escuridade"
-run/main_scene="res://Main/Main.tscn"
+run/main_scene="res://src/Main/Main.tscn"
 config/icon="res://icon.png"
 <<<<<<<Updatedupstreamrun/main_scene="res://Map/World.tscn"
 
@@ -25,6 +35,10 @@ window/size/test_width=960
 window/size/test_height=720
 window/stretch/mode="2d"
 window/stretch/aspect="keep"
+
+[editor_plugins]
+
+enabled=PoolStringArray(  )
 
 [input]
 
@@ -62,6 +76,11 @@ candle={
 , Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"button_mask":0,"position":Vector2( 0, 0 ),"global_position":Vector2( 0, 0 ),"factor":1.0,"button_index":1,"pressed":false,"doubleclick":false,"script":null)
  ]
 }
+
+[input_devices]
+
+pointing/emulate_touch_from_mouse=true
+pointing/emulate_mouse_from_touch=false
 
 [physics]
 

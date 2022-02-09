@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Aparecer_mensaje_texto.ogg-f38a704c87528ab037593797831c54c5.oggstr"
+
+[deps]
+
+source_file="res://assets/Sounds/Aparecer_mensaje_texto.ogg"
+dest_files=[ "res://.import/Aparecer_mensaje_texto.ogg-f38a704c87528ab037593797831c54c5.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

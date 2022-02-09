@@ -1,0 +1,119 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://assets/UI/menu.png" type="Texture" id=1]
+[ext_resource path="res://assets/UI/llama1.png" type="Texture" id=2]
+[ext_resource path="res://assets/UI/llama3.png" type="Texture" id=3]
+[ext_resource path="res://assets/UI/llama2.png" type="Texture" id=4]
+[ext_resource path="res://assets/Fonts/Axolotl.ttf" type="DynamicFontData" id=6]
+[ext_resource path="res://assets/Sounds/507206__magmi-soundtracks__sad-war-music-01.mp3" type="AudioStream" id=7]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 2 ), ExtResource( 4 ), ExtResource( 3 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[sub_resource type="DynamicFont" id=2]
+font_data = ExtResource( 6 )
+
+[node name="Credits" type="Sprite"]
+texture = ExtResource( 1 )
+centered = false
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+frames = SubResource( 1 )
+playing = true
+centered = false
+
+[node name="Tween" type="Tween" parent="."]
+
+[node name="Intro" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 7 )
+volume_db = 11.908
+pitch_scale = 1.37
+autoplay = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Label" type="Label" parent="CanvasLayer"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -160.0
+margin_top = 7.0
+margin_right = 160.0
+margin_bottom = 21.0
+custom_fonts/font = SubResource( 2 )
+text = "Grazas por xogar a"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label2" type="Label" parent="CanvasLayer"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -160.0
+margin_top = -14.0
+margin_right = 160.0
+custom_fonts/font = SubResource( 2 )
+text = "Idea: Aitor Bouzas e Pablo Larrubia"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label3" type="Label" parent="CanvasLayer"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -160.0
+margin_top = -27.0
+margin_right = 160.0
+margin_bottom = -13.0
+custom_fonts/font = SubResource( 2 )
+text = "Deseño do nivel: Jorge FM"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label5" type="Label" parent="CanvasLayer"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -160.0
+margin_top = -40.0
+margin_right = 160.0
+margin_bottom = -26.0
+custom_fonts/font = SubResource( 2 )
+text = "Recursos gráficos: Jorge FM"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label4" type="Label" parent="CanvasLayer"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -160.0
+margin_top = -52.0
+margin_right = 160.0
+margin_bottom = -38.0
+custom_fonts/font = SubResource( 2 )
+text = "Programación: Aitor Bouzas e Pablo Larrubia"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TweenRepeater" type="Tween" parent="CanvasLayer"]
+repeat = true
+playback/repeat = true

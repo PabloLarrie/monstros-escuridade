@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/soplar_vela.mp3-df44a6f50a48a86196ae4ac0598b27ba.mp3str"
+
+[deps]
+
+source_file="res://assets/Sounds/soplar_vela.mp3"
+dest_files=[ "res://.import/soplar_vela.mp3-df44a6f50a48a86196ae4ac0598b27ba.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

@@ -1,5 +1,0 @@
-[gd_scene format=2]
-
-[node name="CoinPosition" type="Position2D" groups=[
-"coin",
-]]
