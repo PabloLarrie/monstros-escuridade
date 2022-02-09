@@ -12,6 +12,8 @@ func move_scene():
 	get_tree().change_scene("res://src/World/World.tscn")
 
 func _ready():
+	if OS.has_touchscreen_ui_hint():
+		label.text = "Toque a pantalla para comezar"
 	tweenRepeater.interpolate_property(
 		label,
 		"modulate",
@@ -34,8 +36,8 @@ func _ready():
 	tweenRepeater.start()
 	
 	
-func _process(delta):
-	if Input.is_action_just_pressed("candle"):
+func _input(event):
+	if event is InputEventScreenTouch or event.is_action_pressed("candle"):
 		$Intro2.play()		
 		label.visible = false
 		tween.interpolate_property(
